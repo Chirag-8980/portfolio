@@ -13,7 +13,7 @@ const Contact = () => {
             <h5 className="contact-title-b">design work or partnerships.</h5>
             <form
               className="contact-form"
-              action="https://formspree.io/f/xoqrgaab"
+              action="https://formspree.io/f/mnqedozd"
               method="post"
             >
               <div className="form-input-item mb-60">

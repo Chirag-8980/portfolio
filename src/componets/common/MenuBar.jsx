@@ -5,7 +5,7 @@ import { ApiContext } from "../../context/CreateContext";
 const MenuBar = () => {
   const location = useLocation();
   const { mainMenuItem } = useContext(ApiContext);
-  
+
   return (
     <>
       {/* <div className="col-xxl-1 d-xxl-block d-none"/> */}
@@ -17,10 +17,13 @@ const MenuBar = () => {
           <ul>
             {mainMenuItem.map((menuItem, i) => {
               return (
-                  <li className={location.pathname == menuItem.to && "active"} key={i}>
-                    <Link to={menuItem.to}>
+                <li
+                  className={location.pathname == menuItem.to && "active"}
+                  key={i}
+                >
+                  <Link to={menuItem.to}>
                     <span>
-                      <i className={menuItem.iconClass} />
+                      <i className={`${menuItem.iconClass}`} />
                     </span>
                     {menuItem.name}
                   </Link>
