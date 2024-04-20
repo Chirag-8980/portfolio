@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import ProfileBar from "./common/ProfileBar";
 import MenuBar from "./common/MenuBar";
 import { ApiContext } from "../context/CreateContext";
@@ -11,6 +11,7 @@ const Layout = ({ Componet, title }) => {
   useEffect(() => {
     document.title = title;
   }, []);
+
   return (
     <div>
       <div
@@ -78,58 +79,28 @@ const Layout = ({ Componet, title }) => {
                   </a>
                   <nav className="mean-nav">
                     <ul>
-                    {mainMenuItem.map((menuItem, i) => {
-              return (
-                  <li className={location.pathname == menuItem.to && "active"} key={i}>
-                    <Link to={menuItem.to}>
-                    <span>
-                      <i className={`me-1 ${menuItem.iconClass}`} />
-                    </span>
-                    {menuItem.name}
-                  </Link>
-                </li>
-              );
-            })}
-                      {/* <li className="active">
-                        <a href="index.html">
-                          <span>
-                            <i className="fa-light fa-address-card" />
-                          </span>
-                          about
-                        </a>
-                      </li>
-                      <li>
-                        <a href="resume.html">
-                          <span>
-                            <i className="fa-light fa-file-user" />
-                          </span>
-                          Resume
-                        </a>
-                      </li>
-                      <li>
-                        <a href="portfolio.html">
-                          <span>
-                            <i className="fa-light fa-briefcase" />
-                          </span>
-                          Works
-                        </a>
-                      </li>
-                      <li>
-                        <a href="blog.html">
-                          <span>
-                            <i className="fa-light fa-newspaper" />
-                          </span>
-                          Blogs
-                        </a>
-                      </li>
-                      <li className="mean-last">
-                        <a href="contact.html">
-                          <span>
-                            <i className="fa-light fa-address-book" />
-                          </span>
-                          contact
-                        </a>
-                      </li> */}
+                      {mainMenuItem.map((menuItem, i) => {
+                        return (
+                          <li
+                            className={
+                              location.pathname == menuItem.to && "active"
+                            }
+                            key={i}
+                          >
+                            <Link
+                              to={menuItem.to}
+                              onClick={() => {
+                                setMobileMenu(false);
+                              }}
+                            >
+                              <span>
+                                <i className={`me-1 ${menuItem.iconClass}`} />
+                              </span>
+                              {menuItem.name}
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </nav>
                 </div>
@@ -149,7 +120,9 @@ const Layout = ({ Componet, title }) => {
             {/* about-page-start */}
             {/* <div className="col-xxl-8 col-xl-9"> */}
             {/* <About/> */}
-            <Componet title={title} />
+            <div className="col-xxl-8 col-xl-9" id="main_content">
+              <Componet title={title} />
+            </div>
             {/* </div> */}
             {/* about-page-end */}
             {/* main-menu-start */}

@@ -6,6 +6,7 @@ const ProfileBar = () => {
   const { profileData } = useContext(ApiContext);
   return (
     <>
+    
       {/* <div className="col-xxl-3 col-xl-3"> */}
       <div className="bostami-parsonal-info-area">
         <div className="bostami-parsonal-info-wrap">
@@ -15,7 +16,7 @@ const ProfileBar = () => {
           </div>
           {/* name */}
           <h4 className="bostami-parsonal-info-name">
-            <Link>{profileData.name}</Link>
+            <h4 className="fw-semibold title">{profileData.name}</h4>
           </h4>
           <span className="bostami-parsonal-info-bio mb-15">
             {profileData.profession}
@@ -25,9 +26,9 @@ const ProfileBar = () => {
             {profileData.social_media.map((item, i) => {
               return (
                 <li key={i}>
-                  <Link to={item.link} className={item.platform}>
+                  <a href={item.link} className={item.platform}>
                     <i className={item.icon} />
-                  </Link>
+                  </a>
                 </li>
               );
             })}

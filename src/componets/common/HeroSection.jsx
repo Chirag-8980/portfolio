@@ -3,7 +3,7 @@ import React from "react";
 const HeroSection = ({ children, title }) => {
   return (
     <>
-      <div className="col-xxl-8 col-xl-9">
+      {/* <div className="col-xxl-8 col-xl-9" id="main_content"> */}
         <div className="bostami-page-content-wrap">
           {/* page title */}
           <div className="section-wrapper pl-60 pr-60 pt-60">
@@ -28,7 +28,7 @@ const HeroSection = ({ children, title }) => {
             </span>
           </div> */}
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };

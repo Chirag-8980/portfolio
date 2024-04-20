@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { ApiContext } from "../CreateContext";
-import { useLocation } from "react-router-dom";
 
 const ApiState = ({ children }) => {
   const mainMenuItem = [
@@ -42,11 +41,13 @@ const ApiState = ({ children }) => {
       },
       {
         platform : "linkedin",
-        link : "",
+        link : "www.linkedin.com/in/chirag-kachhadiya-4a2b0b229",
         icon : "fa-brands fa-linkedin-in"
       },
     ]
   }
+
+  
 
   const DefaultData = {
     mainMenuItem,profileData
