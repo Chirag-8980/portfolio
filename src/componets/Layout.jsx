@@ -2,22 +2,28 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import ProfileBar from "./common/ProfileBar";
 import MenuBar from "./common/MenuBar";
 import { ApiContext } from "../context/CreateContext";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import $ from "jquery";
 
 const Layout = ({ Componet, title }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { mainMenuItem } = useContext(ApiContext);
   useEffect(() => {
     document.title = title;
   }, []);
 
+  const scrollToID = () => {
+    $("#scrool")[0].scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div>
       <div
         className="page-wrapper home-1"
-        data-background="assets/img/bg/page-bg-1.jpg"
-        style={{ backgroundImage: 'url("assets/img/bg/page-bg-1.jpg")' }}
+        data-background="assets/img/bg/page-bg-1.png"
+        style={{ backgroundImage: 'url("assets/img/bg/page-bg-1.png")' }}
       >
         <div className="bostami-header-area mb-30 z-index-5">
           <div className="container">
@@ -83,21 +89,23 @@ const Layout = ({ Componet, title }) => {
                         return (
                           <li
                             className={
-                              location.pathname == menuItem.to && "active"
+                              location.pathname == menuItem.to ? "active" : ""
                             }
                             key={i}
                           >
-                            <Link
-                              to={menuItem.to}
+                            <a
                               onClick={() => {
+                                navigate(menuItem.to);
+                                scrollToID();
                                 setMobileMenu(false);
                               }}
                             >
                               <span>
+                                {/* {menuItem.iconClass} */}
                                 <i className={`me-1 ${menuItem.iconClass}`} />
                               </span>
                               {menuItem.name}
-                            </Link>
+                            </a>
                           </li>
                         );
                       })}

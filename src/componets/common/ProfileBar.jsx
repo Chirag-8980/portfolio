@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { ApiContext } from "../../context/CreateContext";
-import { Link } from "react-router-dom";
 
 const ProfileBar = () => {
   const { profileData } = useContext(ApiContext);
@@ -12,12 +11,13 @@ const ProfileBar = () => {
         <div className="bostami-parsonal-info-wrap">
           {/* img */}
           <div className="bostami-parsonal-info-img">
-            <img src="assets/img/parsonal-info/parson-img-1.png" alt="avatar" />
+            <img src="assets/img/parsonal-info/user_profile_cut.jpg" alt="avatar" />
+            {/* <img src="assets/img/parsonal-info/parson-img-1.png" alt="avatar" /> */}
           </div>
           {/* name */}
-          <h4 className="bostami-parsonal-info-name">
+          <div className="bostami-parsonal-info-name">
             <h4 className="fw-semibold title">{profileData.name}</h4>
-          </h4>
+          </div>
           <span className="bostami-parsonal-info-bio mb-15">
             {profileData.profession}
           </span>
@@ -79,7 +79,7 @@ const ProfileBar = () => {
               <span className="icon">
                 <i className="fa-regular fa-download" />
               </span>
-              download cv
+              Download cv
             </a>
           </div>
         </div>

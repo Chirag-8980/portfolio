@@ -18,12 +18,13 @@ const MenuBar = () => {
             {mainMenuItem.map((menuItem, i) => {
               return (
                 <li
-                  className={location.pathname == menuItem.to && "active"}
+                  className={location.pathname == menuItem.to ? "active" : ""}
                   key={i}
                 >
                   <Link to={menuItem.to}>
                     <span>
                       <i className={`${menuItem.iconClass}`} />
+                      {/* {menuItem.iconClass} */}
                     </span>
                     {menuItem.name}
                   </Link>

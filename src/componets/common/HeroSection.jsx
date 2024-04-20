@@ -4,7 +4,7 @@ const HeroSection = ({ children, title }) => {
   return (
     <>
       {/* <div className="col-xxl-8 col-xl-9" id="main_content"> */}
-        <div className="bostami-page-content-wrap">
+        <div className="bostami-page-content-wrap" id="scrool">
           {/* page title */}
           <div className="section-wrapper pl-60 pr-60 pt-60">
             <div className="bostami-page-title-wrap mb-15">
