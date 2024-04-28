@@ -1,26 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import HeroSection from "./common/HeroSection";
+import { ApiContext } from "../context/CreateContext";
 
 const About = ({title}) => {
-    // console.log(title)
+  const { aboutData } = useContext(ApiContext);
+  const {summary} = aboutData
+    
   return (
     <>
     <HeroSection title={"About"}>
       <div className="bostami-page-content-wrap">
         {/* page title */}
         <div className="section-wrapper pl-60 pr-60 ">
-          <div className="bostami-page-title-wrap mb-35">
-            {/* <h2 className="page-title">about</h2> */}
-            <p>
-              I'm Creative Director and UI/UX Designer from Sydney, Australia,
-              working in web development and print media. I enjoy turning
-              complex problems into simple, beautiful and intuitive designs.
-            </p>
-            <p>
-              My aim is to bring across your message and identity in the most
-              creative way. I created web design for many famous brand
-              companies.
-            </p>
+      <div className="text-justify mb-35">
+           {
+            summary.map((text ,i)=>{
+              return(
+                <p key={i}>
+                  {text}
+                </p>
+              )
+            })
+           }
           </div>
         </div>
         {/* what-do */}

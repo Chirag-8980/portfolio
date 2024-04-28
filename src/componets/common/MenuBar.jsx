@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ApiContext } from "../../context/CreateContext";
 
 const MenuBar = () => {
   const location = useLocation();
+  const navigate = useNavigate()
   const { mainMenuItem } = useContext(ApiContext);
 
   return (
@@ -18,16 +19,19 @@ const MenuBar = () => {
             {mainMenuItem.map((menuItem, i) => {
               return (
                 <li
-                  className={location.pathname == menuItem.to ? "active" : ""}
+                  className={` cursor-pointer text-light ${location.pathname == menuItem.to ? "active text-dark" : "text-black"}`}
                   key={i}
+                  onClick={()=>{
+                    navigate(menuItem.to)
+                  }}
                 >
-                  <Link to={menuItem.to}>
+                <a className="">
                     <span>
                       <i className={`${menuItem.iconClass}`} />
                       {/* {menuItem.iconClass} */}
                     </span>
                     {menuItem.name}
-                  </Link>
+                  </a>
                 </li>
               );
             })}

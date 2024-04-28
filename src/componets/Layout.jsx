@@ -10,6 +10,7 @@ const Layout = ({ Componet, title }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { mainMenuItem } = useContext(ApiContext);
+  
   useEffect(() => {
     document.title = title;
   }, []);
@@ -89,19 +90,20 @@ const Layout = ({ Componet, title }) => {
                         return (
                           <li
                             className={
-                              location.pathname == menuItem.to ? "active" : ""
+                              `cursor-pointer ${location.pathname == menuItem.to ? "active" : ""}`
                             }
                             key={i}
+                            onClick={() => {
+                              navigate(menuItem.to);
+                              scrollToID();
+                              setMobileMenu(false);
+                            }}
                           >
                             <a
-                              onClick={() => {
-                                navigate(menuItem.to);
-                                scrollToID();
-                                setMobileMenu(false);
-                              }}
+                             
                             >
                               <span>
-                                {/* {menuItem.iconClass} */}
+                             
                                 <i className={`me-1 ${menuItem.iconClass}`} />
                               </span>
                               {menuItem.name}

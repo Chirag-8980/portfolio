@@ -11,7 +11,7 @@ const ProfileBar = () => {
         <div className="bostami-parsonal-info-wrap">
           {/* img */}
           <div className="bostami-parsonal-info-img">
-            <img src="assets/img/parsonal-info/user_profile_cut.jpg" alt="avatar" />
+            <img src="assets/img/parsonal-info/user_profile_2.jpeg" alt="avatar" />
             {/* <img src="assets/img/parsonal-info/parson-img-1.png" alt="avatar" /> */}
           </div>
           {/* name */}
