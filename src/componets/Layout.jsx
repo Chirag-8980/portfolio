@@ -10,10 +10,7 @@ const Layout = ({ Componet, title }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { mainMenuItem } = useContext(ApiContext);
-  
-  useEffect(() => {
-    document.title = title;
-  }, []);
+ 
 
   const scrollToID = () => {
     $("#scrool")[0].scrollIntoView({ behavior: "smooth" });

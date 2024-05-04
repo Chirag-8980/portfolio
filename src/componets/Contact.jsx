@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeroSection from "./common/HeroSection";
 
-const Contact = () => {
+const Contact = ({title}) => {
+   
+  useEffect(() => {
+    document.title = `Chirag | ${title}`;
+  }, []);
   return (
     <>
       <HeroSection title={"Contact"}>
@@ -37,7 +41,7 @@ const Contact = () => {
               <div className="form-input-item mb-40">
                 <label
                   className="input-lebel message"
-                  style={{ color: "rgb(206, 101, 243)" }}
+                  // style={{ color: "rgb(206, 101, 243)" }}
                 >
                   Message *
                 </label>
@@ -48,7 +52,7 @@ const Contact = () => {
                   rows={10}
                   style={{
                     height: 125,
-                    borderBottom: "1px solid rgb(206, 101, 243)",
+                    // borderBottom: "1px solid rgb(206, 101, 243)",
                   }}
                   defaultValue={""}
                 />

@@ -2,9 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import HeroSection from "./common/HeroSection";
 import { ApiContext } from "../context/CreateContext";
 
-const Resume = () => {
+const Resume = ({title}) => {
   const { resumeData } = useContext(ApiContext);
   const { Education, Experience, Knowledge_tag } = resumeData;
+   
+  useEffect(() => {
+    document.title = `Chirag | ${title}`;
+  }, []);
   return (
     <>
       <HeroSection title={"Resume"}>
@@ -22,6 +26,7 @@ const Resume = () => {
                 {Education.reverse().map((item, i) => {
                   return (
                     <div
+                    key={i}
                       className={`bostami-card-item  mb-20 ${
                         i % 2 === 0 ? "bg-prink" : "bg-catkrill"
                       }`}
@@ -63,7 +68,7 @@ const Resume = () => {
             </div>
           </div>
         </div>
-        <div className="section-wrapper bg-light-white-2 pt-70 pb-60 pl-60 pr-60">
+        <div className="section-wrapper bg-light-white-2 pt-70 pb-60 pl-60 pr-60" style={{borderBottomRightRadius  : "20px" , borderBottomLeftRadius : "20px"}}>
           <div className="row">
             {/* skill */}
             {/* <div className="col-xl-6 col-lg-7">
@@ -129,7 +134,7 @@ const Resume = () => {
               <div className="knowledeges-item-wrap">
                 {Knowledge_tag.map((item, i) => {
                   return (
-                    <span className="gk-item text-capitalize" key={i}>
+                    <span className="gk-item text-uppercase" key={i}>
                       {item}
                     </span>
                   );

@@ -26,8 +26,9 @@ const ProfileBar = () => {
             {profileData.social_media.map((item, i) => {
               return (
                 <li key={i}>
-                  <a href={item.link} className={item.platform}>
-                    <i className={item.icon} />
+                  <a href={item.link} className={item.platform} target="_blank">
+                    {/* <i className={item.icon} /> */}
+                    {item.icon}
                   </a>
                 </li>
               );
@@ -74,14 +75,14 @@ const ProfileBar = () => {
             </div>
           </div>
           {/* cv button */}
-          <div className="bostami-parsonal-info-btn">
+          {/* <div className="bostami-parsonal-info-btn">
             <a className="btn-1" href="#">
               <span className="icon">
                 <i className="fa-regular fa-download" />
               </span>
               Download cv
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
       {/* </div> */}

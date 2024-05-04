@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import HeroSection from "./common/HeroSection";
 import { ApiContext } from "../context/CreateContext";
 
 const About = ({title}) => {
   const { aboutData } = useContext(ApiContext);
-  const {summary} = aboutData
+  const {summary , whatDo} = aboutData
+   
+  useEffect(() => {
+    document.title = `Chirag | ${title}`;
+  }, []);
     
   return (
     <>
@@ -31,23 +35,28 @@ const About = ({title}) => {
           </div>
           <div className="bostami-what-do-wrap mb-30">
             <div className="row">
-              {/* single item */}
-              <div className="col-xxl-6 col-xl-6 col-lg-6">
-                <div className="bostami-what-do-item bg-prink">
-                  <div className="icon">
-                    <i className="fa-light fa-swatchbook" />
-                  </div>
-                  <div className="text">
-                    <h4 className="title">Ui/Ux Design</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                      sed diam euismod tincidunt volutpat.
-                    </p>
+             {
+              whatDo.map((item ,i )=>{
+                return(
+                  <div className="col-xxl-12 col-xl-12 col-lg-12">
+                  <div className={`bostami-what-do-item ${i % 2 == 1 ? "bg-prink" : "bg-catkrill"}`}>
+                    <div className="icon">
+                     {item.icon}
+                    </div>
+                    <div className="text">
+                      <h4 className="title">{item.title}</h4>
+                      <p>
+                      {item.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              {/* single item */}
-              <div className="col-xxl-6 col-xl-6 col-lg-6">
+                )
+              })
+             }
+             
+            
+              {/* <div className="col-xxl-12 col-xl-12 col-lg-12">
                 <div className="bostami-what-do-item bg-catkrill">
                   <div className="icon">
                     <i className="fa-regular fa-grid-2" />
@@ -61,8 +70,8 @@ const About = ({title}) => {
                   </div>
                 </div>
               </div>
-              {/* single item */}
-              <div className="col-xxl-6 col-xl-6 col-lg-6">
+              
+              <div className="col-xxl-12 col-xl-12 col-lg-12">
                 <div className="bostami-what-do-item  bg-catkrill">
                   <div className="icon">
                     <i className="fa-regular fa-camera-retro" />
@@ -76,8 +85,8 @@ const About = ({title}) => {
                   </div>
                 </div>
               </div>
-              {/* single item */}
-              <div className="col-xxl-6 col-xl-6 col-lg-6">
+              
+              <div className="col-xxl-12 col-xl-12 col-lg-12">
                 <div className="bostami-what-do-item bg-prink bg-blue">
                   <div className="icon">
                     <i className="fa-regular fa-code" />
@@ -90,7 +99,7 @@ const About = ({title}) => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
