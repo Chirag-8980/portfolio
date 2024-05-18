@@ -5,6 +5,10 @@ import { ApiContext } from "../context/CreateContext";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import $ from "jquery";
 
+import "../assets/css/all.min.css"
+import "../assets/css/bootstrap.min.css"
+import "../assets/css/main.css"
+
 const Layout = ({ Componet, title }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const location = useLocation();
