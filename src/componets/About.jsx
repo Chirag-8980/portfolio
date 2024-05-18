@@ -38,7 +38,7 @@ const About = ({title}) => {
              {
               whatDo.map((item ,i )=>{
                 return(
-                  <div className="col-xxl-12 col-xl-12 col-lg-12">
+                  <div className="col-xxl-12 col-xl-12 col-lg-12" key={i}>
                   <div className={`bostami-what-do-item ${i % 2 == 1 ? "bg-prink" : "bg-catkrill"}`}>
                     <div className="icon">
                      {item.icon}
